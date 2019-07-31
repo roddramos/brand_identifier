@@ -1,6 +1,7 @@
 package com.rdr.billing.creditcard;
 
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -17,6 +18,7 @@ public class BrandIdentifierResource {
 
   @POST
   @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.APPLICATION_JSON)
   public Brand identifierBrand(CreditCard creditCard) {
     Brand brand = brandCreditCard.detect(creditCard.getNumberCreditCard());
     return brand;
